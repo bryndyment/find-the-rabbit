@@ -1,0 +1,36 @@
+import './styles.css'
+
+const field = 100
+
+let isFound = false
+
+let pos = Math.floor(Math.random() * field)
+
+const evade = () => {
+  if (!pos) {
+    pos++;
+  } else if (pos === field - 1) {
+    pos--;
+  } else {
+    pos = pos + Math.floor(Math.random() + 0.5) ? 1 : -1
+  }
+};
+
+const search = start => {
+  for (let i = start; i < field; i++) {
+    if (i === pos) {
+      isFound = true
+      break
+    }
+
+    evade()
+  }
+};
+
+search(0)
+
+if (!isFound) {
+  search(1)
+}
+
+console.log(isFound ? `found at ${pos}` : 'not found')
