@@ -8,13 +8,13 @@ let pos = Math.floor(Math.random() * field)
 
 const evade = () => {
   if (!pos) {
-    pos++;
+    pos++
   } else if (pos === field - 1) {
-    pos--;
+    pos--
   } else {
     pos = pos + Math.floor(Math.random() + 0.5) ? 1 : -1
   }
-};
+}
 
 const search = start => {
   for (let i = start; i < field; i++) {
@@ -25,7 +25,7 @@ const search = start => {
 
     evade()
   }
-};
+}
 
 search(0)
 
